@@ -79,7 +79,7 @@ module.exports = function (grunt) {
 
         args.push(options.command);
 
-        if (options.args.length > 0) {
+        if (typeof options.args !== 'undefined' && options.args.length > 0) {
             args.push(options.args.join(' '));
         }
 
@@ -102,7 +102,7 @@ module.exports = function (grunt) {
             task = this.args[0],
             data = this.data[task] || {},
             cmd = makeCommand(options, data),
-            done = options.async ? this.async() : function () {};
+            done = this.async();
 
         grunt.log.ok('Using command: ' + cmd.yellow);
         runCommand(cmd, done);
