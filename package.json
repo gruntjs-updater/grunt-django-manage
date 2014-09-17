@@ -1,6 +1,6 @@
 {
   "name": "grunt-django-manage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run Django manage.py commands",
   "main": "tasks/django-manage.js",
   "scripts": {
@@ -12,7 +12,9 @@
   },
   "keywords": [
     "django",
-    "manage.py"
+    "manage.py",
+    "gruntplugin",
+    "grunt"
   ],
   "author": [
     "Rockabox <tech@rockabox.com> (http://rockabox.com)"
@@ -31,5 +33,8 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-jscs": "~0.7.1",
     "load-grunt-tasks": "~0.6.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
   }
 }
