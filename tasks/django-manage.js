@@ -82,8 +82,9 @@ module.exports = function (grunt) {
             args.push(options.args.join(' '));
         }
 
-        if (options.settings){
-            settings = '--settings=' + options.app + '.settings.' + options.settings;
+        if (options.settings) {
+            settings = '--settings=' +
+                options.app + '.settings.' + options.settings;
             args.push(settings);
         }
 
