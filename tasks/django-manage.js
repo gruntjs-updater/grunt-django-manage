@@ -70,8 +70,7 @@ module.exports = function (grunt) {
         var args = [
                 'python',
                 'manage.py'
-            ],
-            settings = '--settings=';
+            ];
 
         for (var attr in data) {
             options[attr] = data[attr];
@@ -83,8 +82,11 @@ module.exports = function (grunt) {
             args.push(options.args.join(' '));
         }
 
-        settings = settings + options.app + '.settings.' + options.settings;
-        args.push(settings);
+        if (options.settings) {
+            settings = '--settings=' +
+                options.app + '.settings.' + options.settings;
+            args.push(settings);
+        }
 
         return args.join(' ');
     }
