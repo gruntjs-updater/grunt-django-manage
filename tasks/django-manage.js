@@ -4,8 +4,10 @@
  *
  * @module DjangoManage
  * @requires child_process.spawn
+ * @requires path.join
  */
-var spawn = require('child_process').spawn;
+var spawn = require('child_process').spawn,
+    join = require('path').join;
 
 module.exports = function (grunt) {
 
@@ -67,15 +69,14 @@ module.exports = function (grunt) {
      * @return {String}         The full build Django manage command
      */
     function makeCommand (options, data) {
-        var args = [
-                'python',
-                'manage.py'
-            ];
+        var args = ['python'],
+            managePath = options.managePath || '';
 
         for (var attr in data) {
             options[attr] = data[attr];
         }
 
+        args.push(join(managePath, 'manage.py');
         args.push(options.command);
 
         if (typeof options.args !== 'undefined' && options.args.length > 0) {
