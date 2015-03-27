@@ -70,13 +70,14 @@ module.exports = function (grunt) {
      */
     function makeCommand (options, data) {
         var args = ['python'],
-            managePath = options.managePath || '';
+            managePath;
 
         for (var attr in data) {
             options[attr] = data[attr];
         }
 
-        args.push(join(managePath, 'manage.py');
+        managePath = options.managePath || '';
+        args.push(join(managePath, 'manage.py'));
         args.push(options.command);
 
         if (typeof options.args !== 'undefined' && options.args.length > 0) {
